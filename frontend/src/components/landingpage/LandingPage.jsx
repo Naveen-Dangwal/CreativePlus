@@ -1,6 +1,14 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import { FaInstagram, FaYoutube, FaLinkedin, FaFacebook, FaWhatsapp } from 'react-icons/fa'
 import creativestudioLogo from '../../assets/creativestudio.jpeg'
+import heroVideo from '../../assets/creativevideo.mp4'
+import image1 from '../../assets/portfolio/image1.gif'
+import image2 from '../../assets/portfolio/image2.gif'
+import image3 from '../../assets/portfolio/image3.gif'
+import image4 from '../../assets/portfolio/image4.gif'
+import image5 from '../../assets/portfolio/image5.gif'
+import image6 from '../../assets/portfolio/image6.gif'
 
 // Futuristic theme colors: Orange, Yellow, Black
 // Orange: #F56341, Yellow: #FFD700, Black: #000000
@@ -18,24 +26,6 @@ const LandingPage = () => {
     email: '',
     message: '',
   })
-
-  const carouselImages = [
-    {
-      title: 'Professional Video Editing',
-      description: 'Transform your raw footage into cinematic masterpieces',
-      image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=600&fit=crop',
-    },
-    {
-      title: 'Creative Graphic Design',
-      description: 'Stunning visuals that tell your story',
-      image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=600&fit=crop',
-    },
-    {
-      title: 'Motion Graphics & Animation',
-      description: 'Bring your ideas to life with dynamic animations',
-      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=600&fit=crop',
-    },
-  ]
 
   const services = [
     {
@@ -63,49 +53,50 @@ const LandingPage = () => {
         'Engaging content optimized for Instagram, YouTube, TikTok, and other platforms.',
     },
     {
+      icon: '🧑‍💻',
+      title: 'Full-Stack Development',
+      description:
+        'End-to-end web solutions using modern technologies to build secure, scalable, and dynamic applications.',
+    },
+    {
       icon: '🎯',
       title: 'Color Grading',
       description:
         'Professional color correction and grading to enhance the mood and style of your videos.',
     },
-    {
-      icon: '🎵',
-      title: 'Audio Enhancement',
-      description:
-        'Sound design, mixing, and audio post-production for professional results.',
-    },
+    
   ]
 
   const portfolioItems = [
     {
-      title: 'Corporate Brand Video',
+      title: 'Stunning designs that captivate and define your brand identity.',
+      category: 'Graphic Designing',
+      image: image1,
+    },
+    {
+      title: 'Transform raw footage into cinematic story that engage your audience.',
       category: 'Video Editing',
-      image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=400&fit=crop',
+      image: image2,
     },
     {
-      title: 'Product Launch Campaign',
-      category: 'Graphic Design',
-      image: 'https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=600&h=400&fit=crop',
+      title: 'Bring your ideas to life with dynamic animations and immersive visuals.',
+      category: '2D & 3D Animations',
+      image: image3,
     },
     {
-      title: 'Music Video Production',
-      category: 'Video Editing',
-      image: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=600&h=400&fit=crop',
+      title: 'High-quality 3D models creafted for creativity and precision',
+      category: '3D Modeling',
+      image: image4,
     },
     {
-      title: 'Brand Identity Design',
-      category: 'Graphic Design',
-      image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
+      title: 'Responsive, modern and scalable website creation.',
+      category: 'Website & Applications',
+      image: image5,
     },
     {
-      title: 'Animated Explainer Video',
-      category: 'Motion Graphics',
-      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop',
-    },
-    {
-      title: 'Social Media Campaign',
-      category: 'Graphic Design',
-      image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&h=400&fit=crop',
+      title: 'Strategies that amplify your brand and deliver measurable results.',
+      category: 'Digital Marketing',
+      image: image6,
     },
   ]
 
@@ -153,31 +144,7 @@ const LandingPage = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  // Auto-rotate carousel
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % carouselImages.length)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [])
 
-  // Typing effect for carousel heading
-  React.useEffect(() => {
-    setDisplayedText('')
-    const currentTitle = carouselImages[currentSlide].title
-    let currentIndex = 0
-
-    const typingInterval = setInterval(() => {
-      if (currentIndex < currentTitle.length) {
-        setDisplayedText(currentTitle.slice(0, currentIndex + 1))
-        currentIndex++
-      } else {
-        clearInterval(typingInterval)
-      }
-    }, 50) // Adjust speed here (lower = faster)
-
-    return () => clearInterval(typingInterval)
-  }, [currentSlide])
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
@@ -255,112 +222,70 @@ const LandingPage = () => {
           </div>
 
           <div className="flex items-center gap-3">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="hidden rounded-full border border-orange-500/50 px-4 py-2 text-sm font-semibold text-white transition hover:border-orange-500 hover:bg-orange-500/20 lg:inline-flex"
-              style={{ boxShadow: '0 0 15px rgba(245, 99, 65, 0.3)' }}
-            >
-              Login
-            </motion.button>
+           
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="rounded-full bg-gradient-to-r from-[#F56341] via-[#FFD700] to-[#FFA500] px-4 py-2 text-sm font-semibold text-black shadow-md transition hover:shadow-lg"
               style={{ boxShadow: '0 0 25px rgba(245, 99, 65, 0.8), 0 0 15px rgba(255, 215, 0, 0.5)' }}
             >
-              Get Started
+              Book a Consultant
             </motion.button>
           </div>
         </nav>
       </motion.header>
 
-      {/* Carousel Section */}
-      <section id="home" className="relative mt-16 h-[70vh] sm:h-[80vh] lg:h-[90vh] overflow-hidden">
-        {carouselImages.map((slide, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, x: index === currentSlide ? 0 : 100 }}
-            animate={{
-              opacity: index === currentSlide ? 1 : 0,
-              x: index === currentSlide ? 0 : index > currentSlide ? 100 : -100,
-            }}
-            transition={{ duration: 0.8 }}
-            className={`absolute inset-0 ${
-              index === currentSlide ? 'z-10' : 'z-0'
-            }`}
-          >
-            <div className="relative h-full w-full">
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
-              <div className="absolute inset-0 flex items-center">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                  <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{
-                      opacity: index === currentSlide ? 1 : 0,
-                      y: index === currentSlide ? 0 : 50,
-                    }}
-                    transition={{ delay: 0.3, duration: 0.6 }}
-                    className="max-w-2xl"
-                  >
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
-                      {index === currentSlide ? (
-                        <>
-                          {displayedText}
-                          <motion.span
-                            animate={{ opacity: [1, 0] }}
-                            transition={{
-                              duration: 0.8,
-                              repeat: Infinity,
-                              repeatType: 'reverse',
-                            }}
-                            className="inline-block ml-1"
-                          >
-                            |
-                          </motion.span>
-                        </>
-                      ) : (
-                        slide.title
-                      )}
-                    </h1>
-                    <p className="text-lg sm:text-xl text-white/90 mb-8">
-                      {slide.description}
-                    </p>
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="rounded-full bg-gradient-to-r from-[#F56341] via-[#FFD700] to-[#FFA500] px-8 py-3 text-lg font-semibold text-black shadow-lg transition hover:shadow-xl"
-                      style={{ boxShadow: '0 0 30px rgba(245, 99, 65, 0.8), 0 0 20px rgba(255, 215, 0, 0.6)' }}
-                    >
-                      View Portfolio
-                    </motion.button>
-                  </motion.div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        ))}
+      {/* Video Hero Section */}
+   <section
+  id="home"
+  className="relative mt-16 h-[70vh] sm:h-[80vh] lg:h-[90vh] overflow-hidden"
+>
+  {/* Background Video */}
+  <video
+    src={heroVideo}
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 h-full w-full object-cover"
+  />
 
-        {/* Carousel Indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-          {carouselImages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`h-2 rounded-full transition-all ${
-                index === currentSlide
-                  ? 'w-8 bg-gradient-to-r from-[#F56341] via-[#FFD700] to-[#FFA500]'
-                  : 'w-2 bg-white/50 hover:bg-yellow-400/75'
-              }`}
-            />
-          ))}
-        </div>
-      </section>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
+
+  {/* Content */}
+  <div className="relative z-10 flex h-full items-center">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="max-w-2xl"
+      >
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
+          Your Creative Vision
+        </h1>
+
+        <p className="text-lg sm:text-xl text-white/90 mb-8">
+          Transforming ideas into stunning digital experiences.
+        </p>
+
+        {/* <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="rounded-full bg-gradient-to-r from-[#F56341] via-[#FFD700] to-[#FFA500] px-8 py-3 text-lg font-semibold text-black shadow-lg transition hover:shadow-xl"
+          style={{
+            boxShadow:
+              "0 0 30px rgba(245, 99, 65, 0.8), 0 0 20px rgba(255, 215, 0, 0.6)",
+          }}
+        >
+          View Portfolio
+        </motion.button> */}
+      </motion.div>
+    </div>
+  </div>
+</section>
+
 
       {/* Hero Section */}
       <section className="py-20 sm:py-24 lg:py-32 bg-gradient-to-b from-black via-gray-900 to-black">
@@ -486,12 +411,12 @@ const LandingPage = () => {
                   alt={item.title}
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent  transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <span className="text-sm text-[#FFD700] font-semibold" style={{ textShadow: '0 0 10px rgba(255, 215, 0, 0.8)' }}>
+                    <span className="text-2xl text-[#FFD700] font-semibold" style={{ textShadow: '0 0 10px rgba(255, 215, 0, 0.8)' }}>
                       {item.category}
                     </span>
-                    <h3 className="text-xl font-bold mt-2">{item.title}</h3>
+                    <h3 className="text-sm font-bold mt-2">{item.title}</h3>
                   </div>
                 </div>
               </motion.div>
@@ -685,24 +610,27 @@ const LandingPage = () => {
               </div>
 
               <div className="space-y-5">
-                {/* Email card */}
-                <motion.div
+                {/* WhatsApp card */}
+                <motion.a
+                  href="https://wa.me/919631120535"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ y: -4, scale: 1.01 }}
-                  className="flex items-center gap-5 rounded-2xl bg-gradient-to-r from-gray-900 to-black border border-orange-500/30 px-5 py-5 sm:px-6 sm:py-6"
+                  className="flex items-center gap-5 rounded-2xl bg-gradient-to-r from-gray-900 to-black border border-orange-500/30 px-5 py-5 sm:px-6 sm:py-6 cursor-pointer transition-all hover:border-green-500/50"
                   style={{ boxShadow: '0 0 20px rgba(245, 99, 65, 0.4)' }}
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#F56341] via-[#FFD700] to-[#FFA500] text-white text-2xl" style={{ boxShadow: '0 0 20px rgba(245, 99, 65, 0.8)' }}>
-                    ✉️
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#FFD700] via-[#FFA500] to-[#F56341]  text-white" style={{ boxShadow: '0 0 20px rgba(37, 211, 102, 0.8)' }}>
+                    <FaWhatsapp className="text-2xl" />
                   </div>
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
-                      Email
+                      Whatsapp
                     </p>
                     <p className="text-sm sm:text-base font-medium text-white">
-                      email123@gmail.com
+                      9631120535
                     </p>
                   </div>
-                </motion.div>
+                </motion.a> 
 
                 {/* Phone card */}
                 <motion.div
@@ -718,7 +646,7 @@ const LandingPage = () => {
                       Phone
                     </p>
                     <p className="text-sm sm:text-base font-medium text-white">
-                      +91 98787878787
+                      +91 9220219521
                     </p>
                   </div>
                 </motion.div>
@@ -727,9 +655,9 @@ const LandingPage = () => {
                 <motion.div
                   whileHover={{ y: -4, scale: 1.01 }}
                   className="flex items-center gap-5 rounded-2xl bg-gradient-to-r from-gray-900 to-black border border-orange-500/30 px-5 py-5 sm:px-6 sm:py-6"
-                  style={{ boxShadow: '0 0 20px rgba(245, 99, 65, 0.4)' }}
+                  style={{ boxShadow: '0 0 20px rgba(93, 78, 176, 0.4)' }}
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#F56341] via-[#FFD700] to-[#FFA500] text-white text-2xl" style={{ boxShadow: '0 0 20px rgba(245, 99, 65, 0.8)' }}>
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#F56341] via-[#FFD700] to-[#FFA500] text-white text-2xl" style={{ boxShadow: '0 0 20px rgba(134, 58, 108, 0.8)' }}>
                     📍
                   </div>
                   <div>
@@ -737,7 +665,7 @@ const LandingPage = () => {
                       Location
                     </p>
                     <p className="text-sm sm:text-base font-medium text-white">
-                      location of the place where you live, Delhi
+                      Noida Uttarpradesh, 201304
                     </p>
                   </div>
                 </motion.div>
@@ -866,7 +794,7 @@ const LandingPage = () => {
                 </li>
                 <li>
                   <a href="#services" className="hover:text-[#F56341] transition-colors">
-                    Graphic Design
+                    Website Development
                   </a>
                 </li>
                 <li>
@@ -876,7 +804,7 @@ const LandingPage = () => {
                 </li>
                 <li>
                   <a href="#services" className="hover:text-[#F56341] transition-colors">
-                    Color Grading
+                    Graphic Design
                   </a>
                 </li>
               </ul>
@@ -903,26 +831,58 @@ const LandingPage = () => {
             </div>
             <div>
               <h3 className="font-semibold mb-4">Connect</h3>
-              <ul className="space-y-2 text-sm text-slate-400">
+              <ul className="space-y-3 text-sm">
                 <li>
-                  <a href="#" className="hover:text-[#F56341] transition-colors">
-                    Instagram
-                  </a>
+                  <motion.a
+                    href="https://www.instagram.com/creativeplusstudio23/#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className="flex items-center gap-3 text-gray-400 hover:text-[#FFD700] transition-colors"
+                    style={{ textShadow: '0 0 10px rgba(255, 215, 0, 0.5)' }}
+                  >
+                    <FaInstagram className="text-xl" />
+                    <span>Instagram</span>
+                  </motion.a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-[#F56341] transition-colors">
-                    YouTube
-                  </a>
+                  <motion.a
+                    href="https://www.youtube.com/@creativeplusstudio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className="flex items-center gap-3 text-gray-400 hover:text-[#FFD700] transition-colors"
+                    style={{ textShadow: '0 0 10px rgba(255, 215, 0, 0.5)' }}
+                  >
+                    <FaYoutube className="text-xl" />
+                    <span>YouTube</span>
+                  </motion.a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-[#F56341] transition-colors">
-                    LinkedIn
-                  </a>
+                  <motion.a
+                    href="https://www.linkedin.com/in/creative-plus-studio-23958934b/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className="flex items-center gap-3 text-gray-400 hover:text-[#FFD700] transition-colors"
+                    style={{ textShadow: '0 0 10px rgba(255, 215, 0, 0.5)' }}
+                  >
+                    <FaLinkedin className="text-xl" />
+                    <span>LinkedIn</span>
+                  </motion.a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-[#F56341] transition-colors">
-                    Twitter
-                  </a>
+                  <motion.a
+                    href="https://www.facebook.com/people/Creative-Plus-Studio/61573088124675/?rdid=WpWDVylPwAiHAhQj&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1E1KJ9b2Hk%2F"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className="flex items-center gap-3 text-gray-400 hover:text-[#FFD700] transition-colors"
+                    style={{ textShadow: '0 0 10px rgba(255, 215, 0, 0.5)' }}
+                  >
+                    <FaFacebook className="text-xl" />
+                    <span>Facebook</span>
+                  </motion.a>
                 </li>
               </ul>
             </div>
