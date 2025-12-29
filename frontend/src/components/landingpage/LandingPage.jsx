@@ -627,7 +627,7 @@ const LandingPage = () => {
                       Whatsapp
                     </p>
                     <p className="text-sm sm:text-base font-medium text-white">
-                      9631120535
+                      +91 9631120535
                     </p>
                   </div>
                 </motion.a> 
